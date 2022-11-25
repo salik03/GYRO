@@ -78,7 +78,7 @@ function Home() {
         <DisplayMapClass />
         {/* {Headers} */}
         <Header>
-          <UberLogo src="https://i.ibb.co/84stgjq/uber-technologies-new-20218114.jpg" />
+          <GyroLogo src="/logo.png" />
 
           <Profile>
             <Name>{user && user.name}</Name>
@@ -161,7 +161,7 @@ const Header = tw.div<any>`
 	flex justify-between intems-center
 `;
 
-const UberLogo = tw.img`
+const GyroLogo = tw.img`
 	h-28
 `;
 

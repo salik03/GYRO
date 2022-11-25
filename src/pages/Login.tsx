@@ -17,7 +17,7 @@ function Login() {
 
   return (
     <Wrapper>
-      <UberLogo src="https://i.ibb.co/ZMhy8ws/uber-logo.png" />
+      <GyroLogo src="/logo.png" />
 
       <Title>Log in to access your account</Title>
 
@@ -35,7 +35,7 @@ const Wrapper = tw.div<any>`
     flex flex-col h-screen w-screen bg-gray-200  p-4 
 `;
 
-const UberLogo = tw.img<any>`
+const GyroLogo = tw.img<any>`
     h-20 w-auto object-contain self-start
 `;
 
