@@ -44,19 +44,19 @@ function Home() {
     }
   );
   console.log({ data });
-  useEffect(() => {
-    return onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser({
-          name: user?.displayName,
-          photourl: user.photoURL,
-        });
-      } else {
-        setUser(null);
-        router("/login");
-      }
-    });
-  });
+  // useEffect(() => {
+  //   return onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       setUser({
+  //         name: user?.displayName,
+  //         photourl: user.photoURL,
+  //       });
+  //     } else {
+  //       setUser(null);
+  //       router("/login");
+  //     }
+  //   });
+  // });
   // const filterColors = (inputValue: any) => {
   //   return colourOptions.filter((i: any) =>
   //     i.label.toLowerCase().includes(inputValue.toLowerCase())
@@ -93,24 +93,24 @@ function Home() {
         <ActionButtons>
           <Link to="/search">
             <ActionButton>
-              <ActionButtonImage src="https://i.ibb.co/cyvcpfF/uberx.png" />
+              <ActionButtonImage src="/8.png" />
               Ride
             </ActionButton>
           </Link>
 
           <Link to="/search">
             <ActionButton>
-              <ActionButtonImage src="https://i.ibb.co/n776JLm/bike.png" />
+              <ActionButtonImage src="/5.png" />
               Wheels
             </ActionButton>
           </Link>
 
-          <Link to="/search">
+          {/* <Link to="/search">
             <ActionButton>
               <ActionButtonImage src="https://i.ibb.co/5RjchBg/uberschedule.png" />
               Reserve
             </ActionButton>
-          </Link>
+          </Link> */}
         </ActionButtons>
 
         {/* {InputButton} */}
