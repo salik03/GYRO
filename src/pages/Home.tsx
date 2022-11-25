@@ -123,7 +123,8 @@ function Home() {
       placeholder="Your favorite drink"
     /> */}
         {/* //@ts-ignore */}
-
+        {
+          /* 
         <Select
           defaultValue={locationOptions?.at(0) ?? { value: "", label: "" }}
           onChange={(value) => {
@@ -143,7 +144,8 @@ function Home() {
           /*
       // @ts-ignore */
           //   loadOptions={loadOptions}
-        />
+          // /> */
+        }
       </ActionItems>
     </Wrapper>
   );
