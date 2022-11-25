@@ -1,24 +1,14 @@
-/**
- * Create DOM Marker and rotate
- */
 const bus1 = {};
 const bus2 = {};
 
-// var x = document.getElementById("#root");
-// getLocation();
-// function getLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition);
-//   }
-// }
 function calculateRouteFromAtoB(platform) {
   var [lat, long] = window.location.href.split("#")[1].split(":");
   var router = platform.getPublicTransitService();
   console.log(`${lat},${long}`);
   routeRequestParams = {
-    origin: "28.6138954,77.2090057", // Fernsehturm
-    // destination: `${lat},${long}`, // Kurfürstendamm
-    destination: `${lat},${long}`, // Kurfürstendamm
+    origin: "28.6138954,77.2090057",
+
+    destination: `${lat},${long}`,
     return: "polyline,actions,travelSummary",
   };
 
@@ -30,7 +20,17 @@ function onError(error) {
 
 function onSuccess(result) {
   var route = result.routes[0];
-
+  let duration = 0,
+    distance = 0;
+  route.sections.forEach((section) => {
+    distance += section.travelSummary.length;
+    duration += section.travelSummary.duration;
+  });
+  alert(
+    `The duration is ${
+      duration / 60
+    } minutes   \n and distance is ${distance} Meters`
+  );
   /*
    * The styling of the route response on the map is entirely under the developer's control.
    * A representitive styling can be found the full JS + HTML code of this example

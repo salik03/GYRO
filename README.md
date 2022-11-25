@@ -28,7 +28,7 @@ npm run dev
 #to install the  other page ( where  main map page is)
 #open vscode
 #goto here directory (folder)
-#open index.html with liverserver on port 5501
+#open index.html with #liverserver on port 5501
 
 ```
 
