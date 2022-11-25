@@ -199,9 +199,9 @@ export default class DisplayMapClass extends React.Component {
       this.mapRef.current,
       defaultLayers.vector.normal.map,
       {
-        center: { lat: 52.516, lng: 13.3779 },
-        zoom: 13,
-        pixelRatio: window.devicePixelRatio || 1,
+        center: { lat: 50, lng: 5 },
+        zoom: 4,
+        pixelRatio: 4,
       }
     );
     // var berlinMarker = new H.map.Marker({
