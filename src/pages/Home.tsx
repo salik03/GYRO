@@ -44,19 +44,19 @@ function Home() {
     }
   );
   console.log({ data });
-  //   useEffect(() => {
-  //     return onAuthStateChanged(auth, (user) => {
-  //       if (user) {
-  //         setUser({
-  //           name: user?.displayName,
-  //           photourl: user.photoURL,
-  //         });
-  //       } else {
-  //         setUser(null);
-  //         router("/login");
-  //       }
-  //     });
-  //   });
+  useEffect(() => {
+    return onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser({
+          name: user?.displayName,
+          photourl: user.photoURL,
+        });
+      } else {
+        setUser(null);
+        router("/login");
+      }
+    });
+  });
   // const filterColors = (inputValue: any) => {
   //   return colourOptions.filter((i: any) =>
   //     i.label.toLowerCase().includes(inputValue.toLowerCase())

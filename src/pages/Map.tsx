@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React from "react";
+import { APIKEY } from "../data";
 
 export default class DisplayMapClass extends React.Component {
   mapRef = React.createRef();
@@ -10,7 +11,7 @@ export default class DisplayMapClass extends React.Component {
   componentDidMount() {
     const H = window.H;
     const platform = new H.service.Platform({
-      apikey: "kI20g0fzIvUbWZCQo0eRgp1ReUSrVxmuTdzfo42KVAI",
+      apikey: APIKEY,
     });
 
     const defaultLayers = platform.createDefaultLayers();
@@ -19,7 +20,7 @@ export default class DisplayMapClass extends React.Component {
       this.mapRef.current,
       defaultLayers.vector.normal.map,
       {
-        center,
+        center: { lat: 50, lng: 5 },
         zoom: 4,
         pixelRatio: 4,
       }

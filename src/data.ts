@@ -183,3 +183,4 @@ export const defaultArgs = {
   options: colourOptions,
   placeholder: "Select...",
 } as const;
+export const APIKEY = "hGZ2aoE26-GJ7CZiccAoL6huUI9CQLwxM0GnCiW-m1Q";
