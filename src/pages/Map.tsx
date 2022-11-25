@@ -20,7 +20,7 @@ export default class DisplayMapClass extends React.Component {
       this.mapRef.current,
       defaultLayers.vector.normal.map,
       {
-        center: { lat: 50, lng: 5 },
+        center,
         zoom: 4,
         pixelRatio: 4,
       }
