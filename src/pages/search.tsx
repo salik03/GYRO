@@ -2,74 +2,111 @@
 import { useState } from "react";
 import tw from "tailwind-styled-components";
 import Link from "next/link";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Search = () => {
-	const [pickup, setPickup] = useState("");
-	const [dropoff, setDropoff] = useState("");
+  const { type } = useParams();
+  const [pickup, setPickup] = useState("");
+  const [dropoff, setDropoff] = useState("");
+  const [confirm, setConfirm] = useState(false);
+  const router = useNavigate();
+  console.log(pickup);
+  console.log(dropoff);
 
-	console.log(pickup);
-	console.log(dropoff);
-
-	return (
-		<Wrapper>
-			{/* {"Button container"}
+  return (
+    <Wrapper>
+      {/* {"Button container"}
 			<a href="/">
 				<ButtonContainer>
 					<BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png" />
 				</ButtonContainer>
 			</a> */}
 
-            <br/>
+      <br />
 
-			<b>{"Enter pickup and destinantion."}</b>
-            <br/>
-            <br/>
-			<InputContainer>
-				<FromToIcons>
-					<Circle src="https://img.icons8.com/ios-filled/50/9CA3AF/filled-circle.png" />
-					<Line src="https://img.icons8.com/ios/50/9CA3AF/vertical-line.png" />
-					<Square src="https://img.icons8.com/windows/50/000000/square-full.png" />
-				</FromToIcons>
+      <b>{"Enter pickup and destinantion."}</b>
+      <br />
+      <br />
+      <InputContainer>
+        <FromToIcons>
+          <Circle src="https://img.icons8.com/ios-filled/50/9CA3AF/filled-circle.png" />
+          <Line src="https://img.icons8.com/ios/50/9CA3AF/vertical-line.png" />
+          <Square src="https://img.icons8.com/windows/50/000000/square-full.png" />
+        </FromToIcons>
 
-				<InputBoxes>
-					<Input
-						placeholder="Enter pickup location"
-						value={pickup}
-						onChange={(e) => setPickup(e.target.value)}
-					/>
+        <InputBoxes>
+          <Input
+            placeholder="Enter pickup location"
+            value={pickup}
+            onChange={(e) => setPickup(e.target.value)}
+          />
 
-					<Input
-						placeholder="Where to?"
-						value={dropoff}
-						onChange={(e) => setDropoff(e.target.value)}
-					/>
-				</InputBoxes>
+          <Input
+            placeholder="Where to?"
+            value={dropoff}
+            onChange={(e) => setDropoff(e.target.value)}
+          />
+        </InputBoxes>
 
-				<PlusIcon src="https://img.icons8.com/ios/50/000000/plus-math.png" />
-			</InputContainer>
+        <PlusIcon src="https://img.icons8.com/ios/50/000000/plus-math.png" />
+      </InputContainer>
 
-			<b>{"Saved Places"}</b>
-			<SavedPlaces>
-				<StarIcon src="https://img.icons8.com/ios-filled/50/ffffff/star--v1.png" />
-				<b>Saved Places</b>
-			</SavedPlaces><br/>
+      <b>{"Saved Places"}</b>
+      <SavedPlaces>
+        <StarIcon src="https://img.icons8.com/ios-filled/50/ffffff/star--v1.png" />
+        <b>Saved Places</b>
+      </SavedPlaces>
+      <br />
 
-			<b>{"Click Here to confirm location"}</b>
-            <br/>
-			<a
-				href={{
-					pathname: "/confirm",
-					query: {
-						pickup: pickup,
-						dropoff: dropoff,
-					},
-				}}
-			>
-                <br/>
-				<ConfirmLocation><center><b>Confirm Location</b></center></ConfirmLocation>
-			</a>
-		</Wrapper>
-	);
+      <b>{"Click Here to confirm location"}</b>
+      <br />
+      <a
+        href={{
+          pathname: "/confirm",
+          query: {
+            pickup: pickup,
+            dropoff: dropoff,
+          },
+        }}
+      >
+        <br />
+        <ConfirmLocation
+          onClick={() => {
+            if (type == "bus") {
+              window.open(
+                "http://127.0.0.1:5501/here/index.html#28.6256122:77.2341966",
+                "_blank"
+              );
+            } else {
+              window.open(
+                "http://127.0.0.1:5501/here/index.html#28.595374292349952:77.23045349121095",
+                "_blank"
+              );
+            }
+
+            // router("/search");
+            setConfirm(true);
+          }}
+        >
+          <center>
+            <b>Confirm Location</b>
+          </center>
+        </ConfirmLocation>
+        {confirm && (
+          <ConfirmLocation
+            style={{ marginTop: "16px" }}
+            // onClick={() => {
+            //   window.open("http://127.0.0.1:5501/here/index.html", "_blank");
+            // }}
+          >
+            <center>
+              <b>Confirm Location</b>
+            </center>
+          </ConfirmLocation>
+        )}
+      </a>
+    </Wrapper>
+  );
 };
 
 export default Search;

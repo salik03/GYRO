@@ -91,17 +91,17 @@ function Home() {
 
         {/* {ActionButtons} */}
         <ActionButtons>
-          <Link to="/search">
+          <Link to="/search/bus">
             <ActionButton>
               <ActionButtonImage src="/8.png" />
-              Ride
+              Bus
             </ActionButton>
           </Link>
 
-          <Link to="/search">
+          <Link to="/search/auto">
             <ActionButton>
               <ActionButtonImage src="/5.png" />
-              Wheels
+              Auto
             </ActionButton>
           </Link>
 
